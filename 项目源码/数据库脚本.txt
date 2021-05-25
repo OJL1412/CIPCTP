@@ -1,0 +1,140 @@
+(1)新闻信息表
+CREATE TABLE `tbl_news`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `state` int(255) NULL DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `pubdate` datetime(0) NULL DEFAULT NULL,
+  `ck` int(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTE = utf8_bin ROW_FORMAT = Dynamic;
+
+INSERT INTO `tbl_news` VALUES (1, '国画山水图片', '茶色', 1, '山水画是中国画中的一个大科目。除了山水画外还有如花鸟画、人物画、蔬果画、走兽画、鱼虫画等,但山水画一直深受人们的喜爱。学习山水画先从画石头或树木基本练习画起,熟悉各种山石、树木、石质、树叶、树干等等的基本画法。最好能做到熟记于胸,能默写出来,然后把熟记于脑中的一山一石,一树一木随意拼装起来变成一幅作品。', 'D:\\java编写\\后台\\WebContent\\admin\\imgs\\92.jpg', '2020-09-16 16:47:43', 666666);
+INSERT INTO `tbl_news` VALUES (8, '约基奇三双穆雷40分掘金淘汰快船时隔11年再进西决 卡椒38中10', '腾讯网', 1, '北京时间9月16日，西部半决赛抢七生死战，掘金104-89战胜快船，继2009年后再次杀入西部决赛，他们将迎战湖人。这轮系列赛，掘金前四场1-3落后，但此后他们连续三场完成10分以上的大逆转，最终淘汰快船，掘金也成为NBA史上首支连续两轮系列赛在1-3落后的情况下逆转晋级的球队。而快船延续队史50年无缘西决的纪录，他们在取得晋级西决的赛点后，战绩是0胜8负。', 'C:\\Users\\92586\\Pictures\\壁纸播放\\65.jpg', '2020-09-22 08:21:19', 222333);
+INSERT INTO `tbl_news` VALUES (9, '共同应对全球性挑战', '人民网', 1, '中德欧领导人就中欧关系深入交换意见，为下阶段中欧关系规划方向，确定重点领域，一致同意加强沟通协调合作，确保今后中欧之间一系列重大政治议程取得成功，深化互信，实现互利共赢，坚持维护多边主义，共同应对全球性挑战，推动中欧关系迈向更高水平。央视网《联播+》特梳理习主席讲话要点，以飨读者。', 'D:\\java编写\\BS\\WebContent\\images\\39.jpg', '2020-09-23 09:20:15', 111);
+INSERT INTO `tbl_news` VALUES (10, '山水画', '庆幸', 1, '山水画的来源..........', 'D:\\java编写\\BS\\WebContent\\images\\14.jpg', '2020-09-23 09:20:27', 126421);
+
+(2)用户信息表
+CREATE TABLE `tbl_users`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `pwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `role_id` int(11) NULL DEFAULT NULL,
+  `loginTime` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+
+INSERT INTO `tbl_users` VALUES (1, 'asd', '123456', '11111111111', 1, '2020-09-01 10:31:23');
+INSERT INTO `tbl_users` VALUES (2, 'qwe', '654321', '2222222222222', 2, '2020-09-19 10:31:27');
+INSERT INTO `tbl_users` VALUES (3, '11', '123', '1234567', 2, '2020-09-04 10:31:30');
+INSERT INTO `tbl_users` VALUES (4, '小乐', '123', '1234567', 2, '2020-09-02 15:07:35');
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+(3)书画信息表
+
+CREATE TABLE `tbl_opus`  (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `utime` datetime(6) NULL DEFAULT NULL,
+  `img` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ck` int(200) NULL DEFAULT NULL,
+  `tid` int(8) NULL DEFAULT NULL,
+  `sid` int(8) NULL DEFAULT NULL,
+  `introduce` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `tbl_opus` VALUES (1, '大千', '春意盎然', '2020-09-17 15:15:36.572000', 'photo2.png', 0, 1, 5, '好看');
+INSERT INTO `tbl_opus` VALUES (2, '大千', '秋水', '2020-09-17 15:15:17.378000', 'photo1.png', 0, 1, 5, '好');
+INSERT INTO `tbl_opus` VALUES (7, '阿萨德', 'sad', '2020-09-17 15:15:05.442000', 'photo1.png', 0, 1, 5, '好');
+INSERT INTO `tbl_opus` VALUES (8, 'sad', 'sad', '2020-09-17 15:14:52.304000', 'dog.png', 0, 1, 5, '好sadas');
+INSERT INTO `tbl_opus` VALUES (9, 'sada', '阿萨德ad', '2020-09-17 15:14:32.541000', 'dog.png', 0, 3, 9, 'sadas打实打实');
+INSERT INTO `tbl_opus` VALUES (11, 'sad阿萨德', 'sadad', '2020-09-17 15:14:12.241000', 'dog.png', 0, 2, 7, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (12, 'sad阿萨德', 'sadad', '2020-09-17 15:13:46.140000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (13, 'dsa ', 'sa ', '2020-09-17 09:38:04.285000', 'dog.png', 0, 1, 5, 'asd ');
+INSERT INTO `tbl_opus` VALUES (14, 'dsa ', 'dasd ', '2020-09-17 09:38:28.788000', 'dog.png', 0, 3, 9, 'dsa sd ');
+INSERT INTO `tbl_opus` VALUES (15, 'dsa ', 'dasd ', '2020-09-17 09:38:57.356000', 'dog.png', 0, 1, 5, '热热热');
+INSERT INTO `tbl_opus` VALUES (16, 'sad ', 'sad ', '2020-09-17 09:46:13.590000', 'dog.png', 0, 1, 5, 'das sad a');
+INSERT INTO `tbl_opus` VALUES (17, 'sad ', 'dasd ', '2020-09-17 09:59:38.434000', 'photo1.png', 0, 1, 5, 'dsad ');
+INSERT INTO `tbl_opus` VALUES (18, '1231', '21312', '2020-09-17 10:53:01.622000', 'dog.png', 0, 1, 5, '123213');
+INSERT INTO `tbl_opus` VALUES (19, '1231', '21312', '2020-09-17 11:18:48.216000', 'dog.png', 0, 1, 5, '123213');
+INSERT INTO `tbl_opus` VALUES (20, 'sad阿萨德', 'sadad', '2020-09-17 11:19:54.024000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (21, 'sad阿萨德', 'sadad', '2020-09-17 11:19:58.654000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (22, 'sad阿萨德', 'sadad', '2020-09-17 11:20:40.408000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (23, 'sad ', '小马', '2020-09-17 11:20:59.331000', 'dog.png', 0, 1, 5, '大萨达sad啊实打实的as');
+INSERT INTO `tbl_opus` VALUES (24, 'sad阿萨德', 'sadad', '2020-09-17 11:22:43.212000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (25, 'sad阿萨德', 'sadad', '2020-09-17 11:29:16.194000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (26, '大千', '春意盎然', '2020-09-17 11:29:41.923000', 'dog.png', 0, 1, 5, '好看');
+INSERT INTO `tbl_opus` VALUES (29, '大萨达sad', '大萨达sad', '2020-09-17 14:59:52.136000', 'dog.png', 0, 1, 5, '萨达撒的速度as');
+INSERT INTO `tbl_opus` VALUES (30, 'sad啊实打实ad', 'dsa大萨达', '2020-09-17 15:00:39.308000', 'dog.png', 0, 1, 5, 'dsa大萨达');
+INSERT INTO `tbl_opus` VALUES (31, '2', '1', '2020-09-17 15:01:13.278000', 'dog.png', 0, 1, 5, '3');
+INSERT INTO `tbl_opus` VALUES (32, '213213', '213213', '2020-09-17 15:04:50.630000', 'dog.png', 0, 1, 5, '213123');
+INSERT INTO `tbl_opus` VALUES (33, '萨达撒的asd', '大萨达sad', '2020-09-17 15:06:17.927000', 'dog.png', 0, 1, 5, '大萨达sad撒');
+INSERT INTO `tbl_opus` VALUES (34, 'sad阿萨德', 'sadad', '2020-09-17 15:08:47.982000', 'dog.png', 0, 1, 5, '阿萨德阿萨德');
+INSERT INTO `tbl_opus` VALUES (36, '222', '2222', '2020-09-17 15:10:06.121000', 'dog.png', 0, 1, 5, '222');
+INSERT INTO `tbl_opus` VALUES (37, '2222', '2222', '2020-09-17 15:11:10.969000', 'dog.png', 0, 2, 8, '2222');
+INSERT INTO `tbl_opus` VALUES (38, '大千', '西街口', '2020-09-17 15:21:41.424000', 'photo1.png', 0, 3, 10, 'nice');
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+(4)公告信息表
+CREATE TABLE `tbl_notices`  (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `owner` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `showTime` datetime(6) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `tbl_notices` VALUES (1, '齐白石', '戏虾', '2020-09-11 09:58:44.729000');
+INSERT INTO `tbl_notices` VALUES (4, '张大千', '风景画', '2020-09-11 09:59:00.883000');
+INSERT INTO `tbl_notices` VALUES (7, '张大千', '山水画', '2020-09-11 10:49:03.306000');
+INSERT INTO `tbl_notices` VALUES (8, 'asdsa', 'sadsa', '2020-09-11 17:19:49.236000');
+INSERT INTO `tbl_notices` VALUES (9, 'asdas', 'sad', '2020-09-11 17:19:58.709000');
+INSERT INTO `tbl_notices` VALUES (10, 'asda', '撒大声地', '2020-09-14 07:48:38.153000');
+INSERT INTO `tbl_notices` VALUES (11, 'asd', 'asddsa爱上的的撒', '2020-09-14 08:05:54.920000');
+INSERT INTO `tbl_notices` VALUES (12, 'sad', '阿萨德', '2020-09-14 08:21:14.008000');
+INSERT INTO `tbl_notices` VALUES (13, '1', '1', '2020-09-14 08:25:49.045000');
+INSERT INTO `tbl_notices` VALUES (14, '2', '2', '2020-09-14 09:56:16.018000');
+INSERT INTO `tbl_notices` VALUES (21, '打的as', '啊飒飒的阿水d', '2020-09-14 11:17:11.671000');
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+(5)书画类别表
+CREATE TABLE `tbl_types`  (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `parent_id` int(8) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+INSERT INTO `tbl_types` VALUES (1, '山水画', 0);
+INSERT INTO `tbl_types` VALUES (2, '人物画', 0);
+INSERT INTO `tbl_types` VALUES (3, '风景画', 0);
+INSERT INTO `tbl_types` VALUES (4, '画画', 0);
+INSERT INTO `tbl_types` VALUES (5, '山', 1);
+INSERT INTO `tbl_types` VALUES (6, '水', 1);
+INSERT INTO `tbl_types` VALUES (7, '人', 2);
+INSERT INTO `tbl_types` VALUES (8, '物', 2);
+INSERT INTO `tbl_types` VALUES (9, '风', 3);
+INSERT INTO `tbl_types` VALUES (10, '景', 3);
+INSERT INTO `tbl_types` VALUES (11, '画', 4);
+INSERT INTO `tbl_types` VALUES (12, '画', 4);
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+(6)留言信息表
+
+CREATE TABLE `tbl_types`  (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+ `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL, 
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+ `mtime` datetime(6) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
